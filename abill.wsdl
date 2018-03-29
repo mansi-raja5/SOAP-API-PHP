@@ -1,0 +1,1317 @@
+<?xml version="1.0"?>
+<wsdl:definitions name="ApiTwoServiceService" targetNamespace="http://aBill/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:tns="http://aBill/"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+>
+<wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://aBill/" version="1.0">
+<xs:element name="addServiceAliasByOrder" type="tns:addServiceAliasByOrder"/>
+<xs:element name="addServiceAliasByOrderResponse" type="tns:addServiceAliasByOrderResponse"/>
+<xs:element name="applyOrderToInvoice" type="tns:applyOrderToInvoice"/>
+<xs:element name="applyOrderToInvoiceResponse" type="tns:applyOrderToInvoiceResponse"/>
+<xs:element name="applyPayment" type="tns:applyPayment"/>
+<xs:element name="applyPaymentResponse" type="tns:applyPaymentResponse"/>
+<xs:element name="createInvoice" type="tns:createInvoice"/>
+<xs:element name="createInvoiceFromOrder" type="tns:createInvoiceFromOrder"/>
+<xs:element name="createInvoiceFromOrderResponse" type="tns:createInvoiceFromOrderResponse"/>
+<xs:element name="createInvoiceResponse" type="tns:createInvoiceResponse"/>
+<xs:element name="createOrder" type="tns:createOrder"/>
+<xs:element name="createOrderResponse" type="tns:createOrderResponse"/>
+<xs:element name="createPayment" type="tns:createPayment"/>
+<xs:element name="createPaymentLink" type="tns:createPaymentLink"/>
+<xs:element name="createPaymentLinkResponse" type="tns:createPaymentLinkResponse"/>
+<xs:element name="createPaymentResponse" type="tns:createPaymentResponse"/>
+<xs:element name="createSubscription" type="tns:createSubscription"/>
+<xs:element name="createSubscriptionResponse" type="tns:createSubscriptionResponse"/>
+<xs:element name="createUser" type="tns:createUser"/>
+<xs:element name="createUserResponse" type="tns:createUserResponse"/>
+<xs:element name="deletePayment" type="tns:deletePayment"/>
+<xs:element name="deletePaymentResponse" type="tns:deletePaymentResponse"/>
+<xs:element name="generateCallReport" type="tns:generateCallReport"/>
+<xs:element name="generateCallReportResponse" type="tns:generateCallReportResponse"/>
+<xs:element name="getAgeingESRPDF" type="tns:getAgeingESRPDF"/>
+<xs:element name="getAgeingESRPDFResponse" type="tns:getAgeingESRPDFResponse"/>
+<xs:element name="getCallReport" type="tns:getCallReport"/>
+<xs:element name="getCallReportResponse" type="tns:getCallReportResponse"/>
+<xs:element name="getESRPDF" type="tns:getESRPDF"/>
+<xs:element name="getESRPDFResponse" type="tns:getESRPDFResponse"/>
+<xs:element name="getInvoiceWS" type="tns:getInvoiceWS"/>
+<xs:element name="getInvoiceWSResponse" type="tns:getInvoiceWSResponse"/>
+<xs:element name="getLastPayments" type="tns:getLastPayments"/>
+<xs:element name="getLastPaymentsResponse" type="tns:getLastPaymentsResponse"/>
+<xs:element name="getLatestInvoice" type="tns:getLatestInvoice"/>
+<xs:element name="getLatestInvoiceResponse" type="tns:getLatestInvoiceResponse"/>
+<xs:element name="getLatestPayment" type="tns:getLatestPayment"/>
+<xs:element name="getLatestPaymentResponse" type="tns:getLatestPaymentResponse"/>
+<xs:element name="getOrder" type="tns:getOrder"/>
+<xs:element name="getOrderResponse" type="tns:getOrderResponse"/>
+<xs:element name="getPaperInvoicePDF" type="tns:getPaperInvoicePDF"/>
+<xs:element name="getPaperInvoicePDFResponse" type="tns:getPaperInvoicePDFResponse"/>
+<xs:element name="getPayment" type="tns:getPayment"/>
+<xs:element name="getPaymentResponse" type="tns:getPaymentResponse"/>
+<xs:element name="getUserId" type="tns:getUserId"/>
+<xs:element name="getUserIdResponse" type="tns:getUserIdResponse"/>
+<xs:element name="getUserWS" type="tns:getUserWS"/>
+<xs:element name="getUserWSResponse" type="tns:getUserWSResponse"/>
+<xs:element name="payInvoice" type="tns:payInvoice"/>
+<xs:element name="payInvoiceResponse" type="tns:payInvoiceResponse"/>
+<xs:element name="removePaymentLink" type="tns:removePaymentLink"/>
+<xs:element name="removePaymentLinkResponse" type="tns:removePaymentLinkResponse"/>
+<xs:element name="triggerAgeing" type="tns:triggerAgeing"/>
+<xs:element name="triggerAgeingAsync" type="tns:triggerAgeingAsync"/>
+<xs:element name="triggerAgeingAsyncResponse" type="tns:triggerAgeingAsyncResponse"/>
+<xs:element name="triggerAgeingResponse" type="tns:triggerAgeingResponse"/>
+<xs:element name="triggerMediationAsync" type="tns:triggerMediationAsync"/>
+<xs:element name="triggerMediationAsyncResponse" type="tns:triggerMediationAsyncResponse"/>
+<xs:element name="updateUser" type="tns:updateUser"/>
+<xs:element name="updateUserContact" type="tns:updateUserContact"/>
+<xs:element name="updateUserContactResponse" type="tns:updateUserContactResponse"/>
+<xs:element name="updateUserResponse" type="tns:updateUserResponse"/>
+<xs:complexType name="updateUserContact">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+<xs:element minOccurs="0" name="arg1" type="xs:int"/>
+<xs:element minOccurs="0" name="arg2" type="tns:contactWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="contactWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="address1" type="xs:string"/>
+<xs:element minOccurs="0" name="address2" type="xs:string"/>
+<xs:element minOccurs="0" name="city" type="xs:string"/>
+<xs:element minOccurs="0" name="contactTypeDescr" type="xs:string"/>
+<xs:element minOccurs="0" name="contactTypeId" type="xs:int"/>
+<xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+<xs:element minOccurs="0" name="createDate" type="xs:dateTime"/>
+<xs:element name="deleted" type="xs:int"/>
+<xs:element minOccurs="0" name="email" type="xs:string"/>
+<xs:element minOccurs="0" name="faxAreaCode" type="xs:int"/>
+<xs:element minOccurs="0" name="faxCountryCode" type="xs:int"/>
+<xs:element minOccurs="0" name="faxNumber" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="fieldIDs" nillable="true" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="fieldNames" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="fieldValues" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="firstName" type="xs:string"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="include" type="xs:boolean"/>
+<xs:element minOccurs="0" name="initial" type="xs:string"/>
+<xs:element minOccurs="0" name="lastName" type="xs:string"/>
+<xs:element minOccurs="0" name="organizationName" type="xs:string"/>
+<xs:element minOccurs="0" name="phoneAreaCode" type="xs:int"/>
+<xs:element minOccurs="0" name="phoneCountryCode" type="xs:int"/>
+<xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="postalCode" type="xs:string"/>
+<xs:element minOccurs="0" name="stateProvince" type="xs:string"/>
+<xs:element minOccurs="0" name="title" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateUserContactResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="createPayment">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:paymentWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="paymentWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="ach" type="tns:ach"/>
+<xs:element minOccurs="0" name="amount" type="xs:string"/>
+<xs:element minOccurs="0" name="amountAsDecimal" type="xs:decimal"/>
+<xs:element minOccurs="0" name="attempt" type="xs:int"/>
+<xs:element minOccurs="0" name="authorizationId" type="tns:payment-authorization"/>
+<xs:element minOccurs="0" name="balance" type="xs:string"/>
+<xs:element minOccurs="0" name="balanceAsDecimal" type="xs:decimal"/>
+<xs:element minOccurs="0" name="cheque" type="tns:payment-info-cheque"/>
+<xs:element minOccurs="0" name="createDatetime" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="creditCard" type="tns:credit-card"/>
+<xs:element minOccurs="0" name="currencyId" type="xs:int"/>
+<xs:element name="deleted" type="xs:int"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="invoiceIds" nillable="true" type="xs:int"/>
+<xs:element minOccurs="0" name="isPreauth" type="xs:int"/>
+<xs:element minOccurs="0" name="isRefund" type="xs:int"/>
+<xs:element minOccurs="0" name="method" type="xs:string"/>
+<xs:element minOccurs="0" name="methodId" type="xs:int"/>
+<xs:element minOccurs="0" name="paymentDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="paymentId" type="xs:int"/>
+<xs:element minOccurs="0" name="paymentNotes" type="xs:string"/>
+<xs:element minOccurs="0" name="paymentPeriod" type="xs:int"/>
+<xs:element minOccurs="0" name="resultId" type="xs:int"/>
+<xs:element minOccurs="0" name="updateDatetime" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="userId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ach">
+<xs:sequence>
+<xs:element minOccurs="0" name="abaRouting" type="xs:string"/>
+<xs:element minOccurs="0" name="accountName" type="xs:string"/>
+<xs:element minOccurs="0" name="accountType" type="xs:int"/>
+<xs:element minOccurs="0" name="bankAccount" type="xs:string"/>
+<xs:element minOccurs="0" name="bankName" type="xs:string"/>
+<xs:element minOccurs="0" name="gatewayKey" type="xs:string"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="primaryKey" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="payment-authorization">
+<xs:sequence>
+<xs:element minOccurs="0" name="AVS" type="xs:string"/>
+<xs:element minOccurs="0" name="approvalCode" type="xs:string"/>
+<xs:element minOccurs="0" name="cardCode" type="xs:string"/>
+<xs:element minOccurs="0" name="code1" type="xs:string"/>
+<xs:element minOccurs="0" name="code2" type="xs:string"/>
+<xs:element minOccurs="0" name="code3" type="xs:string"/>
+<xs:element minOccurs="0" name="createDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="MD5" type="xs:string"/>
+<xs:element minOccurs="0" name="paymentId" type="xs:int"/>
+<xs:element minOccurs="0" name="primaryKey" type="xs:int"/>
+<xs:element minOccurs="0" name="processor" type="xs:string"/>
+<xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+<xs:element minOccurs="0" name="transactionId" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="payment-info-cheque">
+<xs:sequence>
+<xs:element minOccurs="0" name="bank" type="xs:string"/>
+<xs:element minOccurs="0" name="date" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="number" type="xs:string"/>
+<xs:element minOccurs="0" name="primaryKey" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="credit-card">
+<xs:sequence>
+<xs:element minOccurs="0" name="deleted" type="xs:int"/>
+<xs:element minOccurs="0" name="expiry" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="gatewayKey" type="xs:string"/>
+<xs:element minOccurs="0" name="hasChanged" type="xs:boolean"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="number" type="xs:string"/>
+<xs:element minOccurs="0" name="securityCode" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createPaymentResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLatestPayment">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLatestPaymentResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:paymentWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="triggerMediationAsync">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="triggerMediationAsyncResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getUserId">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getUserIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLatestInvoice">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLatestInvoiceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:invoiceWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="invoiceWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="balance" type="xs:string"/>
+<xs:element minOccurs="0" name="carriedBalance" type="xs:string"/>
+<xs:element minOccurs="0" name="createDateTime" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="createTimeStamp" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="currencyId" type="xs:int"/>
+<xs:element minOccurs="0" name="customerNotes" type="xs:string"/>
+<xs:element minOccurs="0" name="delegatedInvoiceId" type="xs:int"/>
+<xs:element minOccurs="0" name="deleted" type="xs:int"/>
+<xs:element minOccurs="0" name="dueDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="inProcessPayment" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="invoiceLines" nillable="true" type="tns:invoice-line"/>
+<xs:element minOccurs="0" name="isReview" type="xs:int"/>
+<xs:element minOccurs="0" name="lastReminder" type="xs:dateTime"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="metaFields" nillable="true" type="tns:metaFieldValueWS"/>
+<xs:element minOccurs="0" name="number" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="orders" nillable="true" type="xs:int"/>
+<xs:element minOccurs="0" name="overdueStep" type="xs:int"/>
+<xs:element minOccurs="0" name="paymentAttempts" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="payments" nillable="true" type="xs:int"/>
+<xs:element minOccurs="0" name="statusDescr" type="xs:string"/>
+<xs:element minOccurs="0" name="statusId" type="xs:int"/>
+<xs:element minOccurs="0" name="toProcess" type="xs:int"/>
+<xs:element minOccurs="0" name="total" type="xs:string"/>
+<xs:element minOccurs="0" name="userId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="invoice-line">
+<xs:sequence>
+<xs:element minOccurs="0" name="amount" type="xs:decimal"/>
+<xs:element minOccurs="0" name="deleted" type="xs:int"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="isPercentage" type="xs:int"/>
+<xs:element minOccurs="0" name="itemId" type="xs:int"/>
+<xs:element minOccurs="0" name="price" type="xs:decimal"/>
+<xs:element minOccurs="0" name="primaryKey" type="xs:int"/>
+<xs:element minOccurs="0" name="quantity" type="xs:decimal"/>
+<xs:element minOccurs="0" name="sourceUserId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="metaFieldValueWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="booleanValue" type="xs:boolean"/>
+<xs:element minOccurs="0" name="dataType" type="tns:dataType"/>
+<xs:element minOccurs="0" name="dateValue" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="decimalValue" type="xs:string"/>
+<xs:element minOccurs="0" name="defaultValue" type="xs:anyType"/>
+<xs:element name="disabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="displayOrder" type="xs:int"/>
+<xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="integerValue" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listValue" nillable="true" type="xs:string"/>
+<xs:element name="mandatory" type="xs:boolean"/>
+<xs:element minOccurs="0" name="stringValue" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="applyPayment">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:paymentWS"/>
+<xs:element minOccurs="0" name="arg1" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="applyPaymentResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="removePaymentLink">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+<xs:element minOccurs="0" name="arg1" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="removePaymentLinkResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getInvoiceWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getInvoiceWSResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:invoiceWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="payInvoice">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="payInvoiceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:paymentAuthorizationDTOEx"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="paymentAuthorizationDTOEx">
+<xs:complexContent>
+<xs:extension base="tns:payment-authorization">
+<xs:sequence>
+<xs:element minOccurs="0" name="result" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="createInvoice">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createInvoiceResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="generateCallReport">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="generateCallReportResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getESRPDF">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getESRPDFResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:base64Binary"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getPaperInvoicePDF">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getPaperInvoicePDFResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:base64Binary"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createPaymentLink">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+<xs:element minOccurs="0" name="arg1" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createPaymentLinkResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="createUser">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:userWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="userWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="ach" type="tns:ach"/>
+<xs:element minOccurs="0" name="autoRecharge" type="xs:string"/>
+<xs:element minOccurs="0" name="autoRechargeAsDecimal" type="xs:decimal"/>
+<xs:element minOccurs="0" name="automaticPaymentType" type="xs:int"/>
+<xs:element minOccurs="0" name="balanceType" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="blacklistMatches" nillable="true" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="childIds" nillable="true" type="xs:int"/>
+<xs:element minOccurs="0" name="companyName" type="xs:string"/>
+<xs:element minOccurs="0" name="contact" type="tns:contactWS"/>
+<xs:element minOccurs="0" name="createDatetime" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="creditCard" type="tns:credit-card"/>
+<xs:element minOccurs="0" name="creditLimit" type="xs:string"/>
+<xs:element minOccurs="0" name="creditLimitAsDecimal" type="xs:decimal"/>
+<xs:element minOccurs="0" name="currencyId" type="xs:int"/>
+<xs:element minOccurs="0" name="customerId" type="xs:int"/>
+<xs:element name="deleted" type="xs:int"/>
+<xs:element minOccurs="0" name="dueDateUnitId" type="xs:int"/>
+<xs:element minOccurs="0" name="dueDateValue" type="xs:int"/>
+<xs:element minOccurs="0" name="dynamicBalance" type="xs:string"/>
+<xs:element minOccurs="0" name="excludeAgeing" type="xs:boolean"/>
+<xs:element name="failedAttempts" type="xs:int"/>
+<xs:element minOccurs="0" name="invoiceChild" type="xs:boolean"/>
+<xs:element minOccurs="0" name="invoiceDeliveryMethodId" type="xs:int"/>
+<xs:element minOccurs="0" name="isParent" type="xs:boolean"/>
+<xs:element minOccurs="0" name="language" type="xs:string"/>
+<xs:element minOccurs="0" name="languageId" type="xs:int"/>
+<xs:element minOccurs="0" name="lastLogin" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="lastStatusChange" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="mainOrderId" type="xs:int"/>
+<xs:element minOccurs="0" name="mainRoleId" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="metaFields" nillable="true" type="tns:metaFieldValueWS"/>
+<xs:element minOccurs="0" name="nextInvoiceDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="notes" type="xs:string"/>
+<xs:element minOccurs="0" name="owingBalance" type="xs:string"/>
+<xs:element minOccurs="0" name="parentId" type="xs:int"/>
+<xs:element minOccurs="0" name="partnerId" type="xs:int"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element minOccurs="0" name="role" type="xs:string"/>
+<xs:element minOccurs="0" name="status" type="xs:string"/>
+<xs:element minOccurs="0" name="statusId" type="xs:int"/>
+<xs:element minOccurs="0" name="subscriberStatusId" type="xs:int"/>
+<xs:element minOccurs="0" name="useParentPricing" type="xs:boolean"/>
+<xs:element name="userId" type="xs:int"/>
+<xs:element minOccurs="0" name="userIdBlacklisted" type="xs:boolean"/>
+<xs:element minOccurs="0" name="userName" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createUserResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLastPayments">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+<xs:element minOccurs="0" name="arg1" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLastPaymentsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createOrder">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:orderWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="orderWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="activeSince" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="activeUntil" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="anticipatePeriods" type="xs:int"/>
+<xs:element minOccurs="0" name="billingTypeId" type="xs:int"/>
+<xs:element minOccurs="0" name="billingTypeStr" type="xs:string"/>
+<xs:element minOccurs="0" name="createDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="createdBy" type="xs:int"/>
+<xs:element minOccurs="0" name="currencyId" type="xs:int"/>
+<xs:element minOccurs="0" name="cycleStarts" type="xs:dateTime"/>
+<xs:element name="deleted" type="xs:int"/>
+<xs:element minOccurs="0" name="dfFm" type="xs:int"/>
+<xs:element minOccurs="0" name="dueDateUnitId" type="xs:int"/>
+<xs:element minOccurs="0" name="dueDateValue" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="generatedInvoices" nillable="true" type="tns:invoiceWS"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="isCurrent" type="xs:int"/>
+<xs:element minOccurs="0" name="lastNotified" type="xs:dateTime"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="metaFields" nillable="true" type="tns:metaFieldValueWS"/>
+<xs:element minOccurs="0" name="nextBillableDay" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="notes" type="xs:string"/>
+<xs:element minOccurs="0" name="notesInInvoice" type="xs:int"/>
+<xs:element minOccurs="0" name="notificationStep" type="xs:int"/>
+<xs:element minOccurs="0" name="notify" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="orderLines" nillable="true" type="tns:orderLineWS"/>
+<xs:element minOccurs="0" name="ownInvoice" type="xs:int"/>
+<xs:element minOccurs="0" name="period" type="xs:int"/>
+<xs:element minOccurs="0" name="periodStr" type="xs:string"/>
+<xs:element minOccurs="0" name="pricingFields" type="xs:string"/>
+<xs:element minOccurs="0" name="statusId" type="xs:int"/>
+<xs:element minOccurs="0" name="statusStr" type="xs:string"/>
+<xs:element minOccurs="0" name="timeUnitStr" type="xs:string"/>
+<xs:element minOccurs="0" name="total" type="xs:string"/>
+<xs:element minOccurs="0" name="userId" type="xs:int"/>
+<xs:element minOccurs="0" name="versionNum" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="orderLineWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="amount" type="xs:string"/>
+<xs:element minOccurs="0" name="amountAsDecimal" type="xs:decimal"/>
+<xs:element minOccurs="0" name="createDatetime" type="xs:dateTime"/>
+<xs:element name="deleted" type="xs:int"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element minOccurs="0" name="editable" type="xs:boolean"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="itemDto" type="tns:itemDTOEx"/>
+<xs:element minOccurs="0" name="itemId" type="xs:int"/>
+<xs:element minOccurs="0" name="orderId" type="xs:int"/>
+<xs:element minOccurs="0" name="price" type="xs:string"/>
+<xs:element minOccurs="0" name="priceAsDecimal" type="xs:decimal"/>
+<xs:element minOccurs="0" name="provisioningRequestId" type="xs:string"/>
+<xs:element minOccurs="0" name="provisioningStatusId" type="xs:int"/>
+<xs:element minOccurs="0" name="quantity" type="xs:string"/>
+<xs:element minOccurs="0" name="quantityAsDecimal" type="xs:decimal"/>
+<xs:element minOccurs="0" name="typeId" type="xs:int"/>
+<xs:element minOccurs="0" name="useItem" type="xs:boolean"/>
+<xs:element minOccurs="0" name="versionNum" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="itemDTOEx">
+<xs:sequence>
+<xs:element minOccurs="0" name="currencyId" type="xs:int"/>
+<xs:element minOccurs="0" name="deleted" type="xs:int"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="descriptions" nillable="true" type="tns:internationalDescriptionWS"/>
+<xs:element minOccurs="0" name="entityId" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="excludedTypes" nillable="true" type="xs:int"/>
+<xs:element minOccurs="0" name="glCode" type="xs:string"/>
+<xs:element minOccurs="0" name="hasDecimals" type="xs:int"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="metaFields" nillable="true" type="tns:metaFieldValueWS"/>
+<xs:element minOccurs="0" name="number" type="xs:string"/>
+<xs:element minOccurs="0" name="orderLineTypeId" type="xs:int"/>
+<xs:element minOccurs="0" name="percentage" type="xs:string"/>
+<xs:element minOccurs="0" name="percentageAsDecimal" type="xs:decimal"/>
+<xs:element minOccurs="0" name="price" type="xs:string"/>
+<xs:element minOccurs="0" name="priceManual" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="prices" nillable="true" type="tns:itemPriceDTOEx"/>
+<xs:element minOccurs="0" name="promoCode" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="types" nillable="true" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="internationalDescriptionWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="content" type="xs:string"/>
+<xs:element minOccurs="0" name="label" type="xs:string"/>
+<xs:element minOccurs="0" name="languageId" type="xs:int"/>
+<xs:element minOccurs="0" name="psudoColumn" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="itemPriceDTOEx">
+<xs:sequence>
+<xs:element minOccurs="0" name="currencyId" type="xs:int"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="price" type="xs:string"/>
+<xs:element minOccurs="0" name="priceForm" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createOrderResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateUser">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:userWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateUserResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="deletePayment">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="deletePaymentResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="triggerAgeingAsync">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="triggerAgeingAsyncResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getPayment">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getPaymentResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:paymentWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getOrder">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getOrderResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:orderWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="applyOrderToInvoice">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+<xs:element minOccurs="0" name="arg1" type="tns:invoiceWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="applyOrderToInvoiceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="triggerAgeing">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="triggerAgeingResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getUserWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getUserWSResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:userWS"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createSubscription">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:orderWS"/>
+<xs:element minOccurs="0" name="arg1" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createSubscriptionResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addServiceAliasByOrder">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+<xs:element minOccurs="0" name="arg1" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addServiceAliasByOrderResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAgeingESRPDF">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAgeingESRPDFResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:base64Binary"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createInvoiceFromOrder">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+<xs:element minOccurs="0" name="arg1" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createInvoiceFromOrderResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCallReport">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCallReportResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:simpleType name="dataType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="STRING"/>
+<xs:enumeration value="INTEGER"/>
+<xs:enumeration value="DECIMAL"/>
+<xs:enumeration value="BOOLEAN"/>
+<xs:enumeration value="DATE"/>
+<xs:enumeration value="JSON_OBJECT"/>
+<xs:enumeration value="ENUMERATION"/>
+<xs:enumeration value="LIST"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="createOrderResponse">
+<wsdl:part element="tns:createOrderResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="triggerAgeingResponse">
+<wsdl:part element="tns:triggerAgeingResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getPayment">
+<wsdl:part element="tns:getPayment" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getPaymentResponse">
+<wsdl:part element="tns:getPaymentResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getUserId">
+<wsdl:part element="tns:getUserId" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getCallReportResponse">
+<wsdl:part element="tns:getCallReportResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createInvoiceFromOrderResponse">
+<wsdl:part element="tns:createInvoiceFromOrderResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="deletePaymentResponse">
+<wsdl:part element="tns:deletePaymentResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="applyPaymentResponse">
+<wsdl:part element="tns:applyPaymentResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createUserResponse">
+<wsdl:part element="tns:createUserResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getInvoiceWS">
+<wsdl:part element="tns:getInvoiceWS" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getLatestInvoice">
+<wsdl:part element="tns:getLatestInvoice" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getESRPDF">
+<wsdl:part element="tns:getESRPDF" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getPaperInvoicePDFResponse">
+<wsdl:part element="tns:getPaperInvoicePDFResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="triggerAgeingAsyncResponse">
+<wsdl:part element="tns:triggerAgeingAsyncResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="addServiceAliasByOrder">
+<wsdl:part element="tns:addServiceAliasByOrder" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createPaymentLink">
+<wsdl:part element="tns:createPaymentLink" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createUser">
+<wsdl:part element="tns:createUser" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="generateCallReport">
+<wsdl:part element="tns:generateCallReport" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="removePaymentLink">
+<wsdl:part element="tns:removePaymentLink" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="triggerMediationAsync">
+<wsdl:part element="tns:triggerMediationAsync" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getCallReport">
+<wsdl:part element="tns:getCallReport" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getOrderResponse">
+<wsdl:part element="tns:getOrderResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="addServiceAliasByOrderResponse">
+<wsdl:part element="tns:addServiceAliasByOrderResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="generateCallReportResponse">
+<wsdl:part element="tns:generateCallReportResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="updateUser">
+<wsdl:part element="tns:updateUser" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="applyOrderToInvoiceResponse">
+<wsdl:part element="tns:applyOrderToInvoiceResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createSubscriptionResponse">
+<wsdl:part element="tns:createSubscriptionResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="payInvoice">
+<wsdl:part element="tns:payInvoice" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getUserWSResponse">
+<wsdl:part element="tns:getUserWSResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getOrder">
+<wsdl:part element="tns:getOrder" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createOrder">
+<wsdl:part element="tns:createOrder" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="removePaymentLinkResponse">
+<wsdl:part element="tns:removePaymentLinkResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="deletePayment">
+<wsdl:part element="tns:deletePayment" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="triggerAgeing">
+<wsdl:part element="tns:triggerAgeing" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="updateUserContactResponse">
+<wsdl:part element="tns:updateUserContactResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createSubscription">
+<wsdl:part element="tns:createSubscription" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getUserWS">
+<wsdl:part element="tns:getUserWS" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="applyPayment">
+<wsdl:part element="tns:applyPayment" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createPaymentResponse">
+<wsdl:part element="tns:createPaymentResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="triggerMediationAsyncResponse">
+<wsdl:part element="tns:triggerMediationAsyncResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getInvoiceWSResponse">
+<wsdl:part element="tns:getInvoiceWSResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getAgeingESRPDFResponse">
+<wsdl:part element="tns:getAgeingESRPDFResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createInvoice">
+<wsdl:part element="tns:createInvoice" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="payInvoiceResponse">
+<wsdl:part element="tns:payInvoiceResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getLatestPayment">
+<wsdl:part element="tns:getLatestPayment" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getUserIdResponse">
+<wsdl:part element="tns:getUserIdResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="triggerAgeingAsync">
+<wsdl:part element="tns:triggerAgeingAsync" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getLatestInvoiceResponse">
+<wsdl:part element="tns:getLatestInvoiceResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getLastPayments">
+<wsdl:part element="tns:getLastPayments" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="updateUserResponse">
+<wsdl:part element="tns:updateUserResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="applyOrderToInvoice">
+<wsdl:part element="tns:applyOrderToInvoice" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createInvoiceResponse">
+<wsdl:part element="tns:createInvoiceResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getAgeingESRPDF">
+<wsdl:part element="tns:getAgeingESRPDF" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getLatestPaymentResponse">
+<wsdl:part element="tns:getLatestPaymentResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createInvoiceFromOrder">
+<wsdl:part element="tns:createInvoiceFromOrder" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createPaymentLinkResponse">
+<wsdl:part element="tns:createPaymentLinkResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getPaperInvoicePDF">
+<wsdl:part element="tns:getPaperInvoicePDF" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getLastPaymentsResponse">
+<wsdl:part element="tns:getLastPaymentsResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="updateUserContact">
+<wsdl:part element="tns:updateUserContact" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getESRPDFResponse">
+<wsdl:part element="tns:getESRPDFResponse" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="createPayment">
+<wsdl:part element="tns:createPayment" name="parameters"/>
+</wsdl:message>
+<wsdl:portType name="ApiTwoService">
+<wsdl:operation name="updateUserContact">
+<wsdl:input message="tns:updateUserContact" name="updateUserContact"/>
+<wsdl:output message="tns:updateUserContactResponse" name="updateUserContactResponse"/>
+</wsdl:operation>
+<wsdl:operation name="createPayment">
+<wsdl:input message="tns:createPayment" name="createPayment"/>
+<wsdl:output message="tns:createPaymentResponse" name="createPaymentResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getLatestPayment">
+<wsdl:input message="tns:getLatestPayment" name="getLatestPayment"/>
+<wsdl:output message="tns:getLatestPaymentResponse" name="getLatestPaymentResponse"/>
+</wsdl:operation>
+<wsdl:operation name="triggerMediationAsync">
+<wsdl:input message="tns:triggerMediationAsync" name="triggerMediationAsync"/>
+<wsdl:output message="tns:triggerMediationAsyncResponse" name="triggerMediationAsyncResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getUserId">
+<wsdl:input message="tns:getUserId" name="getUserId"/>
+<wsdl:output message="tns:getUserIdResponse" name="getUserIdResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getLatestInvoice">
+<wsdl:input message="tns:getLatestInvoice" name="getLatestInvoice"/>
+<wsdl:output message="tns:getLatestInvoiceResponse" name="getLatestInvoiceResponse"/>
+</wsdl:operation>
+<wsdl:operation name="applyPayment">
+<wsdl:input message="tns:applyPayment" name="applyPayment"/>
+<wsdl:output message="tns:applyPaymentResponse" name="applyPaymentResponse"/>
+</wsdl:operation>
+<wsdl:operation name="removePaymentLink">
+<wsdl:input message="tns:removePaymentLink" name="removePaymentLink"/>
+<wsdl:output message="tns:removePaymentLinkResponse" name="removePaymentLinkResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getInvoiceWS">
+<wsdl:input message="tns:getInvoiceWS" name="getInvoiceWS"/>
+<wsdl:output message="tns:getInvoiceWSResponse" name="getInvoiceWSResponse"/>
+</wsdl:operation>
+<wsdl:operation name="payInvoice">
+<wsdl:input message="tns:payInvoice" name="payInvoice"/>
+<wsdl:output message="tns:payInvoiceResponse" name="payInvoiceResponse"/>
+</wsdl:operation>
+<wsdl:operation name="createInvoice">
+<wsdl:input message="tns:createInvoice" name="createInvoice"/>
+<wsdl:output message="tns:createInvoiceResponse" name="createInvoiceResponse"/>
+</wsdl:operation>
+<wsdl:operation name="generateCallReport">
+<wsdl:input message="tns:generateCallReport" name="generateCallReport"/>
+<wsdl:output message="tns:generateCallReportResponse" name="generateCallReportResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getESRPDF">
+<wsdl:input message="tns:getESRPDF" name="getESRPDF"/>
+<wsdl:output message="tns:getESRPDFResponse" name="getESRPDFResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getPaperInvoicePDF">
+<wsdl:input message="tns:getPaperInvoicePDF" name="getPaperInvoicePDF"/>
+<wsdl:output message="tns:getPaperInvoicePDFResponse" name="getPaperInvoicePDFResponse"/>
+</wsdl:operation>
+<wsdl:operation name="createPaymentLink">
+<wsdl:input message="tns:createPaymentLink" name="createPaymentLink"/>
+<wsdl:output message="tns:createPaymentLinkResponse" name="createPaymentLinkResponse"/>
+</wsdl:operation>
+<wsdl:operation name="createUser">
+<wsdl:input message="tns:createUser" name="createUser"/>
+<wsdl:output message="tns:createUserResponse" name="createUserResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getLastPayments">
+<wsdl:input message="tns:getLastPayments" name="getLastPayments"/>
+<wsdl:output message="tns:getLastPaymentsResponse" name="getLastPaymentsResponse"/>
+</wsdl:operation>
+<wsdl:operation name="createOrder">
+<wsdl:input message="tns:createOrder" name="createOrder"/>
+<wsdl:output message="tns:createOrderResponse" name="createOrderResponse"/>
+</wsdl:operation>
+<wsdl:operation name="updateUser">
+<wsdl:input message="tns:updateUser" name="updateUser"/>
+<wsdl:output message="tns:updateUserResponse" name="updateUserResponse"/>
+</wsdl:operation>
+<wsdl:operation name="deletePayment">
+<wsdl:input message="tns:deletePayment" name="deletePayment"/>
+<wsdl:output message="tns:deletePaymentResponse" name="deletePaymentResponse"/>
+</wsdl:operation>
+<wsdl:operation name="triggerAgeingAsync">
+<wsdl:input message="tns:triggerAgeingAsync" name="triggerAgeingAsync"/>
+<wsdl:output message="tns:triggerAgeingAsyncResponse" name="triggerAgeingAsyncResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getPayment">
+<wsdl:input message="tns:getPayment" name="getPayment"/>
+<wsdl:output message="tns:getPaymentResponse" name="getPaymentResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getOrder">
+<wsdl:input message="tns:getOrder" name="getOrder"/>
+<wsdl:output message="tns:getOrderResponse" name="getOrderResponse"/>
+</wsdl:operation>
+<wsdl:operation name="applyOrderToInvoice">
+<wsdl:input message="tns:applyOrderToInvoice" name="applyOrderToInvoice"/>
+<wsdl:output message="tns:applyOrderToInvoiceResponse" name="applyOrderToInvoiceResponse"/>
+</wsdl:operation>
+<wsdl:operation name="triggerAgeing">
+<wsdl:input message="tns:triggerAgeing" name="triggerAgeing"/>
+<wsdl:output message="tns:triggerAgeingResponse" name="triggerAgeingResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getUserWS">
+<wsdl:input message="tns:getUserWS" name="getUserWS"/>
+<wsdl:output message="tns:getUserWSResponse" name="getUserWSResponse"/>
+</wsdl:operation>
+<wsdl:operation name="createSubscription">
+<wsdl:input message="tns:createSubscription" name="createSubscription"/>
+<wsdl:output message="tns:createSubscriptionResponse" name="createSubscriptionResponse"/>
+</wsdl:operation>
+<wsdl:operation name="addServiceAliasByOrder">
+<wsdl:input message="tns:addServiceAliasByOrder" name="addServiceAliasByOrder"/>
+<wsdl:output message="tns:addServiceAliasByOrderResponse" name="addServiceAliasByOrderResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getAgeingESRPDF">
+<wsdl:input message="tns:getAgeingESRPDF" name="getAgeingESRPDF"/>
+<wsdl:output message="tns:getAgeingESRPDFResponse" name="getAgeingESRPDFResponse"/>
+</wsdl:operation>
+<wsdl:operation name="createInvoiceFromOrder">
+<wsdl:input message="tns:createInvoiceFromOrder" name="createInvoiceFromOrder"/>
+<wsdl:output message="tns:createInvoiceFromOrderResponse" name="createInvoiceFromOrderResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getCallReport">
+<wsdl:input message="tns:getCallReport" name="getCallReport"/>
+<wsdl:output message="tns:getCallReportResponse" name="getCallReportResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="ApiTwoServiceServiceSoapBinding" type="tns:ApiTwoService">
+<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="updateUserContact">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="updateUserContact">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="updateUserContactResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="createPayment">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="createPayment">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="createPaymentResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="triggerMediationAsync">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="triggerMediationAsync">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="triggerMediationAsyncResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getLatestPayment">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getLatestPayment">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getLatestPaymentResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getUserId">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getUserId">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getUserIdResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getLatestInvoice">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getLatestInvoice">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getLatestInvoiceResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="applyPayment">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="applyPayment">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="applyPaymentResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getInvoiceWS">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getInvoiceWS">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getInvoiceWSResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="removePaymentLink">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="removePaymentLink">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="removePaymentLinkResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="createInvoice">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="createInvoice">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="createInvoiceResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="payInvoice">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="payInvoice">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="payInvoiceResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="generateCallReport">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="generateCallReport">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="generateCallReportResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getESRPDF">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getESRPDF">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getESRPDFResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getPaperInvoicePDF">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getPaperInvoicePDF">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getPaperInvoicePDFResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="createPaymentLink">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="createPaymentLink">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="createPaymentLinkResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="createUser">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="createUser">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="createUserResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="createOrder">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="createOrder">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="createOrderResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getLastPayments">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getLastPayments">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getLastPaymentsResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="deletePayment">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="deletePayment">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="deletePaymentResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="updateUser">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="updateUser">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="updateUserResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getPayment">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getPayment">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getPaymentResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="triggerAgeingAsync">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="triggerAgeingAsync">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="triggerAgeingAsyncResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="applyOrderToInvoice">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="applyOrderToInvoice">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="applyOrderToInvoiceResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getOrder">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getOrder">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getOrderResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="createSubscription">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="createSubscription">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="createSubscriptionResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getUserWS">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getUserWS">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getUserWSResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="triggerAgeing">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="triggerAgeing">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="triggerAgeingResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addServiceAliasByOrder">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="addServiceAliasByOrder">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addServiceAliasByOrderResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="createInvoiceFromOrder">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="createInvoiceFromOrder">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="createInvoiceFromOrderResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getAgeingESRPDF">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getAgeingESRPDF">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getAgeingESRPDFResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getCallReport">
+<soap12:operation soapAction="" style="document"/>
+<wsdl:input name="getCallReport">
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getCallReportResponse">
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="ApiTwoServiceService">
+<wsdl:port binding="tns:ApiTwoServiceServiceSoapBinding" name="ApiTwoServicePort">
+<soap12:address location="http://45.55.129.192:8080/abill/services/apiTwo"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
