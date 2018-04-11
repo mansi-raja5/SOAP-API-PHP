@@ -9,7 +9,7 @@ if ($error) {
     echo "<h2>Constructor error</h2><pre>" . $error . "</pre>";
 }
 
-$result = $client->call("getPayment", array("arg0" => "10810"));
+$result = $client->call("getUserId", array("arg0" => "billingadmin"));
 
 if ($client->fault) {
     echo "<h2>Fault</h2><pre>";
@@ -23,7 +23,7 @@ else {
     }
     else {
         echo "<h2>Books</h2><pre>";
-        echo $result;
+        print_r($result);
         echo "</pre>";
     }
 }
